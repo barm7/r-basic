@@ -1,0 +1,41 @@
+---
+title: "Binomio de Newton"
+author: "Adolfo Ramos"
+date: "30/8/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Binomio al cuadrado
+
+La fórmula del binomio al cuadrado es
+
+$$(a+b)^2 = a^2+2ab+b^2$$
+
+# Función con R
+
+```{r}
+binomioNewton2 = function(a,b){
+  a^2+2*a*b+b^2
+}
+binomioNewton2(1,2)
+```
+
+# Binomio de Newton
+
+Ahora bien, si lo que queremos es que el binomio se eleve a la potencia $n$ lo que tenemos que hacer es:
+
+$$(a+b)^n = \sum_{k=0}^n {n\choose k}\cdot a^{n-k}\cdot b^k$$
+
+## Código en R
+
+```{r}
+binomioNewton = function(a,b,n){
+  cumsum(choose(n,(0:n))*a^{n-(0:n)}*b^(0:n))[n+1]
+binomioNewton(2,1,2)
+}
+```
+
