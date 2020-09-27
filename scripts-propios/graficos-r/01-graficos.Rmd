@@ -1,0 +1,46 @@
+---
+title: "Gráficos"
+author: "Adolfo Ramos"
+date: "17/9/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Gráficos con la función `plot`
+
+```{r grafico, fig.cap='Primer gráfico con la función plot', fig.align='center'}
+x = seq(0, 2*pi, by=0.2)
+y = sqrt(x)
+plot(x,y)
+```
+
+Si no incorporamos el vector `y`, `R` nos va a tomar el parámetro `x` como si fuera el vector de datos `y` : `plot(1:n, x)`
+
+```{r}
+plot(2^(1:10))
+```
+
+Si queremos representar una función
+
+```{r}
+f <- function(x){sqrt(x)}
+plot(f)
+```
+
+## Parámetros de la función plot()
+
+```{r fib, fig.cap='Sucesión explicíta de Fibonacci', fig.align='center'}
+n = 1:20
+fib = (1/sqrt(5))*((1+sqrt(5))/2)^n - (1/sqrt(5))*((1-sqrt(5))/2)^n
+fib
+plot(fib, xlab = 'n', ylab = expression(F[n]),
+     main = 'Sucesión de Fibonacci en escalas logarítmicas', pch = 20, col = 'blue', bg = 'blue', log = 'xy')
+```
+
+```{r}
+plot(n,fib, main = 'Modificación de la gráfica con los parámetros', pch = 21, col = 'red', bg = 'black', cex = 1.2, type = 'o', lty = 'dashed', lwd = 2,
+     xlim = c(1,10), ylim = c(1,100))
+```
