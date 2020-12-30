@@ -1,0 +1,36 @@
+---
+title: "Data frame de Iris"
+author: "Adolfo Ramos"
+date: "14/11/2020"
+output: html_document
+---
+
+# Data frame de Iris
+
+Voy a mostrar la tabla de datos del famoso data frame llamado Iris.
+
+```{r}
+df = iris
+#df
+head(df,5)
+tail(df,5)
+names(df) # Nombre de las variables
+str(df) # Estructura del data frame
+dimnames(df)
+
+dim(df)
+
+df$Petal.Length[1:10]
+df$Species[1:10] # Es un factor
+```
+
+Podemos crear una submatriz de los elementos de la siguiente forma:
+
+```{r}
+df[1:10, ]
+# Podemos crear un filtrado
+df[df$Species == 'versicolor' & df$Petal.Length>=3, ]
+```
+
+
+
