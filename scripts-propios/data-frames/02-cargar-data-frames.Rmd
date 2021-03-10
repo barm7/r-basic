@@ -1,0 +1,28 @@
+---
+title: "Cargar data frames"
+author: "Bryan Morales"
+date: "10/3/2021"
+output: html_document
+---
+
+# Carga de ficheros de forma local
+
+```{r}
+df = read.table("../../data/bulls.dat",
+                header = FALSE,
+                col.names = c("breed","scale_price","shoulder",
+                          "fat_free_body","percent_ffb",
+                          "frame_scale","back_fat",
+                          "sale_height","sale_wight"),
+                sep = "")
+# Nombre de las columnas
+head(df) # Solo mostrar algunas partes del data frame
+```
+
+Ahora voy a cargar mi propio set de datos que he descargado de forma local en mi computadora personal, para ejemplificar el proceso que se sigue para crear una tabla en el lenguaje R.
+
+```{r}
+df2 = read.table("../../data/grades.txt")
+head(df2,10)
+```
+
