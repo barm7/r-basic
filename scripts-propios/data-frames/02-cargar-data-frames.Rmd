@@ -26,3 +26,53 @@ df2 = read.table("../../data/grades.txt")
 head(df2,10)
 ```
 
+# Cargas data frames de a través de un url no segura
+
+```{r}
+df4 = read.csv("https://people.sc.fsu.edu/~jburkardt/data/csv/deniro.csv")
+head(df4)
+```
+
+
+# Factores en un data frame
+
+```{r}
+#df3 = read.table("https://archive.ics.uci.edu/ml/datasets/Mushroom") # No puedo leer este data frame desde la url porque es una página web protegida o sea https.
+df3 = read.table("../../data/datacrab.txt",
+                 stringsAsFactors = FALSE,
+                 header = TRUE)
+str(df3)
+```
+
+# Guardar data frames en ficheros
+
+```{r}
+write.table(df4, "../../data/deniro.txt", dec = ".")
+df5 = read.table("../../data/deniro.txt")
+head(df5)
+```
+
+# Ejercicios de práctica
+
+```{r}
+df6 = read.table("http://bioinfo.uib.es/~recerca/MATIIIGMAT/NotasTestGrado/grado1.txt",header = TRUE)
+df6
+
+# Ahora vamos a guardar ese fichero de forma local en nuestra carpeta de data
+
+write.table(df6,file = "../../data/notas_grado1.txt")
+```
+
+# Cargar data frame creado por mí mismo
+
+```{r}
+notas_bryan = read.table("../../data/notas_bryan.txt",
+                         header = TRUE,
+                         sep = "",
+                         stringsAsFactors = TRUE)
+# Nota que los factores me ordenan mis strings por orden alfabético y me determinan si se llega a repetir alguno
+notas_bryan # Este es mi data frame que acabo de crear
+str(notas_bryan) # Creamos una estructura para verificar cómo lo entendió R
+```
+
+

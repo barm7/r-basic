@@ -1,0 +1,30 @@
+---
+title: "Cómo crear data frames"
+author: "Bryan Morales"
+date: "14/3/2021"
+output: html_document
+---
+# Cómo crear data frames
+
+Yo puedo crear data frames a partir de un conjunto de datos escritos como vectores de cierta muestra que se obtenga de algún lado, por ejemplo calificaciones de tres alumnos en tres diferentes materias.
+
+Ahora lo que se hace es crear de datos y despúes esos datos transformarlos en un data frame de la siguiente manera
+
+```{r}
+Algebra = c(70,80,90,60,95,10,45,80,79,92)
+Estadistica = c(70,80,90,45,95,15,45,90,79,92)
+Calculo = c(70,80,90,90,95,10,45,75,79,100)
+
+grades = data.frame(Al = Algebra, Est = Estadistica, Cal = Calculo)
+str(grades) # Crea una estructura para determinar cómo que se creo el data frame
+```
+
+Agragamos una nueva columna al data frame anterior
+
+```{r}
+Circuitos = c(70,80,90,60,95,15,45,90,79,92)
+grade_act = cbind(grades, Circuitos)
+grade_act
+```
+
+

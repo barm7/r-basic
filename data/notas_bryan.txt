@@ -1,0 +1,8 @@
+"Materia" "Calificacion"
+"Calculo" 90
+"Integral" 72
+"Lineal" 85
+"Vectorial" 70
+"Ecuaciones diferenciales" 100
+"Circuitos 1" 75
+"Circuitos 2" 90 
