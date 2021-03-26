@@ -1,0 +1,122 @@
+---
+title: "Tarea 3 LaTex, R y Markdown"
+author: "Bryan Morales"
+date: "18/3/2021"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+
+## Pregunta 1
+Realiza los siguiente productos de matrices siguiente en R:
+
+\[
+  A \cdot B
+\]
+
+\[
+  B \cdot A
+\]
+
+\[
+  (A \cdot B)^{t}
+\]
+
+\[
+  B^t \cdot A
+\]
+
+\[
+  (A\cdot B)^{-1}
+\]
+
+\[
+  A^{-1} \cdot B^t
+\]
+
+Finalmente, escribe haciendo uso de \LaTeX{} el resultado de los primeros productos.
+
+```{r}
+A = rbind(c(1,2,3,4), c(4,3,2,1), c(0,1,0,2), c(3,0,4,0)) # Creamos la primera matriz A
+
+B = rbind(c(4,3,2,1), c(0,3,0,4), c(1,2,3,4), c(0,1,0,2)) # Creamos la segunda matriz B
+
+# Calculamos el primer producto
+A%*%B # Producto matricial
+B%*%A
+t(A%*%B) # Transpuesta de producto matricial
+solve(A%*%B) # Inversa del producto matricial
+solve(A)%*%t(B) # Una operación un poco más compleja
+```
+
+Escribiendo los dos primeros resultados en \LaTeX{} nos queda de la siguiente forma:
+
+\[
+  A\cdot B = 
+  \begin{pmatrix}
+  7 &  19 &  11 &  29 \\
+  18  & 26  & 14  & 26\\
+  0   & 5 &   0 &   8\\
+  16  & 17  & 18  & 19\\
+  \end{pmatrix}
+\]
+
+El segundo resultado que nos da es:
+
+\[
+  B \cdot A =
+  \begin{pmatrix}
+    19 &  19  & 22  & 23\\
+    24  &  9  & 22  &  3\\
+    21  & 11  & 23  & 12\\
+    10  &  3 &  10  &  1\\
+  \end{pmatrix}
+\]
+
+## Pregunta 2
+Considera en un vector los números de tu DNI. Define el vector en R, cacula el cuadrado, la raíz cuadrada y, por último, la suma de todas las cifras del vector.
+
+Finalmente escribe todos estos vectores en LaTeX
+
+```{r}
+dni = c(4,9,8,5,9,3,2,1,9,7) # Este es el dni
+dni_cuadrado = dni**2
+dni_cuadrado
+dni_sqrt = sqrt(dni) # Calculamos la raíz cuadrada del dni
+dni_sqrt
+dni_sum = sum(dni) # Suma del vector dni
+dni_sum
+```
+
+Escritos en \LaTex{} serían de la siguiente forma
+
+\[
+  dni = (4,9,8,5,9,3,2,1,9,7)
+\]
+
+\[
+  dni^2 = (16, 81, 64, 25, 81,  9,  4,  1, 81, 49)
+\]
+
+\[
+  \sqrt{dni} = (2.000000, 3.000000, 2.828427, 2.236068, 3.000000, 1.732051, 1.414214, 1.000000, 3.000000, 2.645751)
+\]
+
+\[
+  \sum_{i=1}^{N} dni = 57
+\]
+
+# Pregunta 3
+Considera un vector con tu nombre y apellido. Define dicho vector en R, calcula el subvector que solo tenga tu nombre, calcula el subvector que solo tenga tu apellido, y ordenalo alfabéticamente, crea una matriz con este vector.
+
+```{r}
+mi_nombre = c("B","R","Y","A","N","M","O","R","A","L","E","S")
+nombre = mi_nombre[1:5] # Calculamos el nombre
+nombre
+apellido = mi_nombre[6:length(mi_nombre)] # Este es el apellido
+apellido
+sort(apellido)
+matrix(nombre,nrow=2)
+```
+
